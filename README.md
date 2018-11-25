@@ -1,0 +1,2 @@
+# magportal
+test mag portal
