@@ -201,6 +201,12 @@ function bootUp() {
             player.stop();
         });
 
+        var sfcNo = 0;
+        stbSurfaceManager.list.forEach(function (surface) {
+
+            document.body.innerText += "\n surface ID: "+ surface.id+", type: "+surface.type;
+        });
+
         stb.onPortalEvent = onPortalEvent;
 
         deviceInfo = {
