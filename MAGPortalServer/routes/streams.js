@@ -4,6 +4,8 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
 
+
+
     const streams = {
         version: "1.0",
         items: [

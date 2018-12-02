@@ -3,7 +3,20 @@
 
 var stb = null;
 var lastStreamsAsString = null;
-var deviceInfo;
+var deviceInfo = null;
+var loading_element = null;
+var logging_element = null;
+
+
+function logmessage(message) {
+    var now = new Date().toUTCString();
+    logging_element.innerText += now + "<pre>" + message + "</pre>\n";
+}
+
+function clearlog(message) {
+    logging_element.innerText = "";
+    logmessage("Log cleared");
+}
 
 function runPlayer(ndx, url) {
 
@@ -19,53 +32,53 @@ function runPlayer(ndx, url) {
     var output = stbAudioManager.list[0];
     output.add(player);
 
-//    document.body.innerText += "\nPlayer " + ndx + " caps " + JSON.stringify(player.capabilities) + "\n sfc " + player.surface + "\n\n\n";
-    //document.body.innerText += "\n Number of Audio Outputs = " + stbAudioManager.list.length + "\n";
 
     player.onPlayEnd = function () //event1
     {
-        document.body.innerText += "\n Player PlayEnd";
+        logmessage("Player PlayEnd");
     };
 
     player.onTracksInfo = function () //event2
     {
-        document.body.innerText += "\n Player onTracksInfo";
+        logmessage("Player onTracksInfo");
     };
 
     player.onContentInfo = function () //event7
     {
-        document.body.innerText += "\n Content Info";
+        logmessage("Content Info");
     };
 
 
     player.onPlayStart = function () //event4
     {
-        document.body.innerText += "\n Player PlayStart   " ;
+
+        logmessage("Player PlayStart");
+        loading_element.style.display = "none";
     };
 
     player.onPlayError = function () //event 5
     {
-        document.body.innerText += "\n Player Error";
+        logmessage("Player Error");
     };
 
     player.onTracksError = function () //event8
     {
-        document.body.innerText += "\n Player onTracksError";
+        logmessage("Player onTracksError");
     };
 
     player.onDualMono = function () //event6
     {
-        document.body.innerText += "\n Player onDualMono";
+        logmessage("Player onDualMono");
     };
 
     player.onTracksUpdate = function () //event9
     {
-        document.body.innerText += "\n Player onTracksUpdate";
+        logmessage("Player onTracksUpdate")();
     };
 
     player.onRTPBreak = function () //event129
     {
-        document.body.innerText += "\n Player onRTPBreak";
+        logmessage("Player onRTPBreak");
     };
 
 
@@ -113,24 +126,26 @@ function keyDownEventHandler(event) {
             runPlayer(1, "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8");
             break;//Stop key
         case 8:
-            document.body.innerText = "Supported device Model: " + stb.GetDeviceModel();
+            clearlog();
+            logmessage("Supported device Model: " + stb.GetDeviceModel());
             break;//Back key
     }
 
-    document.body.innerText += "\nKey Down Code: " + keyCode;
+    logmessage("Key Down Code: " + keyCode);
 }
 
 function onPortalEvent(txt) {
-    document.body.innerText += "\nPortal Event " + txt;
+    logmessage("Portal Event " + txt);
 }
 
 
 function newStreamUrlHandler(readyState, statusCode, responseType, response) {
     if (readyState === XMLHttpRequest.DONE) {
-        document.body.innerText += "\nnewStreamUrlHandler Response::: " + responseType + "\n";
+        logmessage("newStreamUrlHandler Response::: " + responseType);
 
         if (statusCode === 200) {
-            document.body.innerText += response;
+
+            logmessage(response);
 
             if (lastStreamsAsString !== response) {
                 var js = JSON.parse(response);
@@ -142,14 +157,14 @@ function newStreamUrlHandler(readyState, statusCode, responseType, response) {
 
         }
         else if (statusCode === 400) {
-            document.body.innerText += '\nThere was an error 400';
+            logmessage('There was an error 400');
         }
         else {
-            document.body.innerText += '\nStatusCode ' + statusCode + " returned";
+            logmessage('StatusCode ' + statusCode + " returned");
         }
     }
     else {
-        document.body.innerText += "\nreadyState " + readyState;
+        logmessage("readyState " + readyState);
     }
 
 }
@@ -182,15 +197,23 @@ function bootUp() {
 
 
     if (stb === null) {
-        document.body.style.backgroundColor = "#000000";
-        document.body.style.color = "#FFFFFF";
-        document.body.innerText = "Unsupported device. No gSTB";
-        //We have to put the hls.js code here
+        document.body.style.backgroundColor = "#FF0000";
+        document.body.style.color = "#000000";
+        document.body.innerHTML = "Unsupported device. No gSTB";
+
+        //We have to put the hls.js code here <MAYBE>
     }
     else {
-        document.body.style.backgroundColor = "#AAAAFF";
-        document.body.style.color = "#000000";
-        document.body.innerText = "Supported device Model: " + stb.GetDeviceModel();
+        loading_element = document.getElementById("loading");
+        logging_element = document.getElementById("logging");
+
+
+        logging_element.style.display = "block";
+
+
+        loading_element.style.display = "block";
+
+
         document.addEventListener("keydown", keyDownEventHandler);
         document.addEventListener("newstreamurl", newStreamUrlHandler);
 
@@ -201,10 +224,10 @@ function bootUp() {
             player.stop();
         });
 
-        var sfcNo = 0;
+
         stbSurfaceManager.list.forEach(function (surface) {
 
-            document.body.innerText += "\n surface ID: "+ surface.id+", type: "+surface.type;
+            logmessage("surface ID: " + surface.id + ", type: " + surface.type);
         });
 
         stb.onPortalEvent = onPortalEvent;
