@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MAGPortalServer/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/views/error.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/views/index.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/views/layout.pug" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +17,7 @@
     <session id="1986593008">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.opened" value="2" />
@@ -56,6 +47,7 @@
           <entry key="css" value="40" />
           <entry key="html" value="134" />
           <entry key="js" value="2852" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -63,6 +55,7 @@
           <entry key="CSS" value="40" />
           <entry key="HTML" value="134" />
           <entry key="JavaScript" value="2852" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
     </session>
@@ -266,16 +259,23 @@
       <option name="presentableId" value="Default" />
       <updated>1543649913369</updated>
       <workItem from="1543649916513" duration="9796000" />
-      <workItem from="1543731015418" duration="5581000" />
+      <workItem from="1543731015418" duration="6019000" />
     </task>
+    <task id="LOCAL-00001" summary="some cleanuo">
+      <created>1543748763872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543748763872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15377000" />
+    <option name="totallyTimeSpent" value="15815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -301,6 +301,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some cleanuo" />
+    <option name="LAST_COMMIT_MESSAGE" value="some cleanuo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/views/index.pug">
