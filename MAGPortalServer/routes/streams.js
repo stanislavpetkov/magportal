@@ -8,18 +8,8 @@ router.get('/', function (req, res, next) {
 
     const streams = {
         version: "1.0",
-        items: [
-            {
-                url: "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8",
-                isMain: true,
-                title: "Apple 2010"
-            },
-            {
-                url: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8",
-                isMain: false,
-                title: "Bip Bop"
-            }
-        ]
+        mainUrl: "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8",
+        backupUrl:"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8"
     };
     res.send(streams);
 

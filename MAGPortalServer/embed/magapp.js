@@ -6,14 +6,16 @@ var lastStreamsAsString = null;
 var deviceInfo = null;
 var loading_element = null;
 var logging_element = null;
+var intervalObject = null;
+
 
 
 function logmessage(message) {
     var now = new Date().toUTCString();
-    logging_element.innerText += now + "<pre>" + message + "</pre>\n";
+    logging_element.innerText += now + "\t" + message + "\n";
 }
 
-function clearlog(message) {
+function clearlog() {
     logging_element.innerText = "";
     logmessage("Log cleared");
 }
@@ -26,7 +28,6 @@ function runPlayer(ndx, url) {
 
 
     var player = stbPlayerManager.list[ndx];
-    player.surface = stbSurfaceManager.list[2 + ndx];
     player.volume = 100;
 
     var output = stbAudioManager.list[0];
@@ -107,6 +108,8 @@ function volumeDown() {
 }
 
 function keyDownEventHandler(event) {
+
+    // noinspection JSDeprecatedSymbols
     const keyCode = event.keyCode;
 
     switch (keyCode) {
@@ -141,7 +144,7 @@ function onPortalEvent(txt) {
 
 function newStreamUrlHandler(readyState, statusCode, responseType, response) {
     if (readyState === XMLHttpRequest.DONE) {
-        logmessage("newStreamUrlHandler Response::: " + responseType);
+        //logmessage("newStreamUrlHandler Response::: " + responseType);
 
         if (statusCode === 200) {
 
@@ -150,7 +153,7 @@ function newStreamUrlHandler(readyState, statusCode, responseType, response) {
             if (lastStreamsAsString !== response) {
                 var js = JSON.parse(response);
 
-                runPlayer(1, js.items[0].url);
+                runPlayer(0, js.mainUrl);
                 lastStreamsAsString = response;
             }
 
@@ -162,9 +165,13 @@ function newStreamUrlHandler(readyState, statusCode, responseType, response) {
         else {
             logmessage('StatusCode ' + statusCode + " returned");
         }
+
+
+        intervalObject = setTimeout(function(){GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler)}, 5000);
+
     }
     else {
-        logmessage("readyState " + readyState);
+        //logmessage("readyState " + readyState);
     }
 
 }
@@ -176,6 +183,7 @@ function GetRequest(url, method, callback) {
     xmlhttp.onreadystatechange = function () {
 
         callback(xmlhttp.readyState, xmlhttp.status, xmlhttp.responseType, xmlhttp.responseText);
+
     };
 
     xmlhttp.open(method, url, true);
@@ -224,12 +232,6 @@ function bootUp() {
             player.stop();
         });
 
-
-        stbSurfaceManager.list.forEach(function (surface) {
-
-            logmessage("surface ID: " + surface.id + ", type: " + surface.type);
-        });
-
         stb.onPortalEvent = onPortalEvent;
 
         deviceInfo = {
@@ -241,7 +243,8 @@ function bootUp() {
             portalName: "MapAppPortal"
         };
 
-        GetRequest("http://10.10.10.198:3000/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+        GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+
     }
 }
 

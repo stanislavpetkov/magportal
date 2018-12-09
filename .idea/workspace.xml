@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="embed folder... this should be copy to /home/">
-      <change afterPath="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MAGPortalServer/embed/services.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MAGPortalServer/embed/style.css" afterDir="false" />
+    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="embed folder... content of embed should be copy to /home/web/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAGPortalServer/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/embed/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,6 +18,25 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/magapp.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="135">
+                    <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1986593008">
@@ -28,9 +50,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
+          <entry key="css" value="3" />
           <entry key="html" value="3" />
-          <entry key="js" value="6" />
+          <entry key="js" value="7" />
           <entry key="json" value="1" />
           <entry key="pug" value="2" />
           <entry key="www" value="1" />
@@ -38,27 +60,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="2" />
+          <entry key="CSS" value="3" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="1" />
           <entry key="Jade" value="2" />
-          <entry key="JavaScript" value="7" />
+          <entry key="JavaScript" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="40" />
-          <entry key="html" value="143" />
-          <entry key="js" value="2876" />
-          <entry key="txt" value="62" />
+          <entry key="css" value="49" />
+          <entry key="html" value="163" />
+          <entry key="js" value="3266" />
+          <entry key="txt" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="40" />
-          <entry key="HTML" value="143" />
-          <entry key="JavaScript" value="2876" />
-          <entry key="PLAIN_TEXT" value="62" />
+          <entry key="CSS" value="49" />
+          <entry key="HTML" value="163" />
+          <entry key="JavaScript" value="3266" />
+          <entry key="PLAIN_TEXT" value="82" />
         </counts>
       </usages-collector>
     </session>
@@ -68,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -77,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -95,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="12" selection-end-column="7" />
+            <state relative-caret-position="180">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -105,30 +127,25 @@
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+              <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/style.css">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/magapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="243" column="44" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="420">
+              <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
             </state>
           </provider>
         </entry>
@@ -148,9 +165,16 @@
       <find>innerHTML</find>
       <find>stb</find>
       <find>err</find>
-      <find>surf</find>
       <find>body.i</find>
       <find>locatio</find>
+      <find>surf</find>
+      <find>und</find>
+      <find>loadi</find>
+      <find>&lt;pre</find>
+      <find>pre</find>
+      <find>items</find>
+      <find>pla</find>
+      <find>string</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,8 +190,10 @@
         <option value="$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/MAGPortalServer/public/index.html" />
         <option value="$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/index.html" />
+        <option value="$PROJECT_DIR$/MAGPortalServer/embed/style.css" />
+        <option value="$PROJECT_DIR$/MAGPortalServer/embed/services.html" />
+        <option value="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" />
       </list>
     </option>
@@ -242,6 +268,12 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="magportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="magportal" type="462c0819:PsiDirectoryNode" />
+              <item name="MAGPortalServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -293,7 +325,7 @@
       <updated>1543649913369</updated>
       <workItem from="1543649916513" duration="9796000" />
       <workItem from="1543731015418" duration="6019000" />
-      <workItem from="1544351322904" duration="2133000" />
+      <workItem from="1544351322904" duration="5435000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -302,19 +334,27 @@
       <option name="project" value="LOCAL" />
       <updated>1543748763872</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="embed folder... content of embed should be copy to /home/web/">
+      <created>1544357732822</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544357732822</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17948000" />
+    <option name="totallyTimeSpent" value="21250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -340,7 +380,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some cleanuo" />
-    <option name="LAST_COMMIT_MESSAGE" value="some cleanuo" />
+    <MESSAGE value="embed folder... content of embed should be copy to /home/web/" />
+    <option name="LAST_COMMIT_MESSAGE" value="embed folder... content of embed should be copy to /home/web/" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/views/index.pug" />
@@ -362,13 +403,6 @@
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3345">
@@ -383,34 +417,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js">
+    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/index.html">
+    <entry file="file://$PROJECT_DIR$/MAGPortalServer/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="12" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/services.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="243" column="44" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
+        <state relative-caret-position="420">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
         </state>
       </provider>
     </entry>
