@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="embed folder... content of embed should be copy to /home/web/">
-      <change beforePath="$PROJECT_DIR$/MAGPortalServer/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/MAGPortalServer/embed/services.html" afterDir="false" />
-    </list>
+    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="embed folder... content of embed should be copy to /home/web/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,7 +18,7 @@
     <session id="1986593008">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.opened" value="3" />
@@ -70,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="142" />
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -291,7 +289,7 @@
       <updated>1543649913369</updated>
       <workItem from="1543649916513" duration="9796000" />
       <workItem from="1543731015418" duration="6019000" />
-      <workItem from="1544351322904" duration="32273000" />
+      <workItem from="1544351322904" duration="32891000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -318,11 +316,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48088000" />
+    <option name="totallyTimeSpent" value="48706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -427,7 +424,7 @@
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/embed/services.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="142" />
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
