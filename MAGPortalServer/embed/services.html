@@ -3,12 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>MAG Portal</title>
+
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <script type="text/javascript" src="magapp.js"></script>
+
+    <script>
+
+        function LogMessageInt(message) {
+            document.getElementById("logging").innerText += new Date().toUTCString() + "\t" + message + "\n";
+        }
+
+
+        window.onerror = function (msg, url, line, col, error) {
+            LogMessageInt("ss");
+            var extra = !col ? '' : '\ncolumn: ' + col;
+            extra += !error ? '' : '\nerror: ' + error +"  ";
+
+            // if (error.stack)
+            // {
+            //     LogMessageInt("Stack is "+error.stack);
+            // }
+
+
+            LogMessageInt("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra+"\n");
+
+            // If you return true, then error alerts (like in older versions of
+            // Internet Explorer) will be suppressed.
+            return true;
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            LogMessageInt("Load Done");
+
+            magBootUp();
+        });
+
+    </script>
+
+
+
+
 </head>
-<body onload="bootUp()">
-<div id="loading" class="loading_class">SUNNY LOADING...</div>
+<body>
+<div id="time" class="time"></div>
 <div id="logging" class="logging"></div>
+
 </body>
+<!--<script src="http://10.10.10.198:8080/target/target-script-min.js#anonymous"></script>-->
 </html>
 

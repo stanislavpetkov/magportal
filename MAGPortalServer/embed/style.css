@@ -9,10 +9,9 @@ a {
   color: #00B7FF;
 }
 
-.loading_class {
-  display: none;
-}
 
 .logging_element {
   display: none;
+  height: 300px;
+  max-height: 400px
 }

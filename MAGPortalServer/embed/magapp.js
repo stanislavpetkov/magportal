@@ -1,98 +1,144 @@
-//ECMA 262 5 - do not support let
+//ECMA 262 5 - do not support let and const
 
-
+var playerNo = 0;
 var stb = null;
 var lastStreamsAsString = null;
 var deviceInfo = null;
-var loading_element = null;
-var logging_element = null;
 var intervalObject = null;
+var playerPosition = -1.0;
+var interval = null;
+
+    function getPlayer() {
+    return stbPlayerManager.list[playerNo];
+}
 
 
-
-function logmessage(message) {
+function LogMessage(message) {
     var now = new Date().toUTCString();
-    logging_element.innerText += now + "\t" + message + "\n";
+    var logging = document.getElementById("logging");
+    if ((typeof logging === 'undefined') || logging === null) {
+        //document.body.innerHTML += now + "\t" + message + "\n";
+        return;
+    }
+    logging.innerText += now + "\t" + message + "\n";
 }
 
 function clearlog() {
-    logging_element.innerText = "";
-    logmessage("Log cleared");
+    document.getElementById("logging").innerText = "";
+    LogMessage("Log cleared");
 }
 
-function runPlayer(ndx, url) {
+function RestartStream() {
+    LogMessage("Stream Restart");
+    clearInterval(interval );
+    clearTimeout(intervalObject);
+    lastStreamsAsString = null;
+    getPlayer().stop();
+    GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+}
+
+function getStateString(state)
+{
+switch (state) {
+    case 0:	return "idle";
+    case 1:	return "opening (between stbPlayer.play method call and event 4)";
+    case 2:	return "currently is playing";
+    case 3:	return "paused";
+    default:
+        return "unknown";
+}
 
 
-    var otherplayer = stbPlayerManager.list[1 - ndx];
-    otherplayer.stop();
+}
+
+function CheckPosition()
+{
+    var pos = getPlayer().positionMs/1000;
+    var state = getPlayer().state;
+    if (playerPosition !== pos)
+    {
+        document.getElementById("time").innerText = "Time: "+pos.toFixed(3)+"   State: "+getStateString( state);
+        playerPosition = pos;
+        return;
+    }
+
+    LogMessage("Detected Frozen Player");
+    RestartStream();
+}
 
 
-    var player = stbPlayerManager.list[ndx];
+function runPlayer(url) {
+
+    var player = getPlayer();
+
+    LogMessage("Run Player - " + url);
+    player.stop();
     player.volume = 100;
-
     var output = stbAudioManager.list[0];
     output.add(player);
 
 
     player.onPlayEnd = function () //event1
     {
-        logmessage("Player PlayEnd");
+        LogMessage("Player PlayEnd");
+        RestartStream();
+
     };
 
-    player.onTracksInfo = function () //event2
-    {
-        logmessage("Player onTracksInfo");
-    };
-
-    player.onContentInfo = function () //event7
-    {
-        logmessage("Content Info");
-    };
+    // player.onTracksInfo = function () //event2
+    // {
+    //     LogMessage("Player onTracksInfo");
+    // };
+    //
+    // player.onContentInfo = function () //event7
+    // {
+    //     LogMessage("Content Info");
+    // };
 
 
     player.onPlayStart = function () //event4
     {
-
-        logmessage("Player PlayStart");
-        loading_element.style.display = "none";
+        LogMessage("Player Start");
+        interval = setInterval(CheckPosition, 500);
+        //getPlayer().fullscreen = true;
     };
 
     player.onPlayError = function () //event 5
     {
-        logmessage("Player Error");
+        LogMessage("Player Error");
+        RestartStream();
     };
 
     player.onTracksError = function () //event8
     {
-        logmessage("Player onTracksError");
+        LogMessage("Player onTracksError");
+        RestartStream();
     };
 
-    player.onDualMono = function () //event6
-    {
-        logmessage("Player onDualMono");
-    };
+    // player.onDualMono = function () //event6
+    // {
+    //     LogMessage("Player onDualMono");
+    // };
 
-    player.onTracksUpdate = function () //event9
-    {
-        logmessage("Player onTracksUpdate")();
-    };
+    // player.onTracksUpdate = function () //event9
+    // {
+    //     LogMessage("Player onTracksUpdate")();
+    // };
+    //
+    // player.onRTPBreak = function () //event129
+    // {
+    //     LogMessage("Player onRTPBreak");
+    // };
 
-    player.onRTPBreak = function () //event129
-    {
-        logmessage("Player onRTPBreak");
-    };
 
-
-    player.aspectConversion = 4;
-    player.videoWindowMode = 0;
-    player.setViewport({x: 800 * ndx, y: 500, width: 800, height: 600});
-
+    player.setViewport({x: 800, y: 500, width: 800, height: 600});
     player.play({
         uri: url,
         solution: 'auto'
     });
-
-
+    player.aspectConversion = 3;
+    player.videoWindowMode = 1; //always have video window
+    player.loop = true;
 }
 
 
@@ -122,129 +168,126 @@ function keyDownEventHandler(event) {
         case 116:
             window.location.reload(true);
             break;//Bottom line rightmost key something like loop
-        case 82:
-            runPlayer(0, "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8");
-            break;//PlayPause Key
-        case 83:
-            runPlayer(1, "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8");
-            break;//Stop key
+        case 117:
+            var player = getPlayer();
+            var x = !player.fullscreen;
+
+            if (x === false) {
+                player.setViewport({x: 800, y: 500, width: 800, height: 600});
+            }
+            player.fullscreen = x;
+            break;
         case 8:
             clearlog();
-            logmessage("Supported device Model: " + stb.GetDeviceModel());
+            LogMessage("Supported device Model: " + stb.GetDeviceModel());
             break;//Back key
     }
 
-    logmessage("Key Down Code: " + keyCode);
+    LogMessage("Key Down Code: " + keyCode);
 }
 
 function onPortalEvent(txt) {
-    logmessage("Portal Event " + txt);
+    LogMessage("Portal Event " + txt);
 }
 
 
-function newStreamUrlHandler(readyState, statusCode, responseType, response) {
-    if (readyState === XMLHttpRequest.DONE) {
-        //logmessage("newStreamUrlHandler Response::: " + responseType);
+function newStreamUrlHandler(response) {
 
-        if (statusCode === 200) {
+    if (lastStreamsAsString === response) return;
+    try {
+        var js = JSON.parse(response);
 
-            logmessage(response);
+        try {
+            runPlayer(js.mainUrl);
+        }
+        catch (e) {
+            LogMessage("runPlayer Failed " + e.message);
+        }
 
-            if (lastStreamsAsString !== response) {
-                var js = JSON.parse(response);
+        lastStreamsAsString = response;
+    }
+    catch (e) {
+        LogMessage("Response is not a json::: " + response);
+    }
 
-                runPlayer(0, js.mainUrl);
-                lastStreamsAsString = response;
+}
+
+
+function GetRequest(url, method, fn) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+            if (xmlhttp.status === 200) {
+                fn(xmlhttp.response);
             }
 
-
+            intervalObject = setTimeout(function () {
+                GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
+            }, 5000);
         }
-        else if (statusCode === 400) {
-            logmessage('There was an error 400');
-        }
-        else {
-            logmessage('StatusCode ' + statusCode + " returned");
-        }
-
-
-        intervalObject = setTimeout(function(){GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler)}, 5000);
-
-    }
-    else {
-        //logmessage("readyState " + readyState);
-    }
-
-}
-
-
-function GetRequest(url, method, callback) {
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.onreadystatechange = function () {
-
-        callback(xmlhttp.readyState, xmlhttp.status, xmlhttp.responseType, xmlhttp.responseText);
-
     };
+
+    xmlhttp.ontimeout = function () {
+        LogMessage("TimeOut");
+    };
+
+    xmlhttp.timeout = 1000;
 
     xmlhttp.open(method, url, true);
     xmlhttp.send();
 }
 
 
-function bootUp() {
+function magBootUp() {
+    clearlog();
+    try {
+        var validDevice = (typeof gSTB !== 'undefined')
+            && (typeof stbPlayerManager !== 'undefined')
+            && (typeof stbAudioManager !== 'undefined');
 
 
-    var validDevice = (typeof gSTB !== 'undefined')
-        && (typeof stbPlayerManager !== 'undefined')
-        && (typeof stbAudioManager !== 'undefined');
+        if (validDevice) {
+            stb = gSTB;
+        }
 
 
-    if (validDevice) {
-        stb = gSTB;
+        if (stb === null) {
+            document.body.style.backgroundColor = "#FF0000";
+            document.body.style.color = "#000000";
+            document.body.innerHTML = "Unsupported device. No gSTB";
+
+            //We have to put the hls.js code here <MAYBE>
+        }
+        else {
+
+
+            document.addEventListener("keydown", keyDownEventHandler);
+            document.addEventListener("newstreamurl", newStreamUrlHandler);
+
+            stb.DeinitPlayer();
+            stb.InitPlayer();
+
+            stbPlayerManager.list.forEach(function (player) {
+                player.stop();
+            });
+
+            stb.onPortalEvent = onPortalEvent;
+
+            deviceInfo = {
+                deviceVendor: stb.GetDeviceVendor(),
+                deviceModel: stb.GetDeviceModel(),
+                deviceModelExt: stb.GetDeviceModelExt(),
+                deviceHardware: stb.GetDeviceVersionHardware(),
+                deviceSerial: stb.GetDeviceSerialNumber(),
+                portalName: "MapAppPortal"
+            };
+
+            GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+
+        }
     }
-
-
-    if (stb === null) {
-        document.body.style.backgroundColor = "#FF0000";
-        document.body.style.color = "#000000";
-        document.body.innerHTML = "Unsupported device. No gSTB";
-
-        //We have to put the hls.js code here <MAYBE>
-    }
-    else {
-        loading_element = document.getElementById("loading");
-        logging_element = document.getElementById("logging");
-
-
-        logging_element.style.display = "block";
-
-
-        loading_element.style.display = "block";
-
-
-        document.addEventListener("keydown", keyDownEventHandler);
-        document.addEventListener("newstreamurl", newStreamUrlHandler);
-
-        stb.DeinitPlayer();
-        stb.InitPlayer();
-
-        stbPlayerManager.list.forEach(function (player) {
-            player.stop();
-        });
-
-        stb.onPortalEvent = onPortalEvent;
-
-        deviceInfo = {
-            deviceVendor: stb.GetDeviceVendor(),
-            deviceModel: stb.GetDeviceModel(),
-            deviceModelExt: stb.GetDeviceModelExt(),
-            deviceHardware: stb.GetDeviceVersionHardware(),
-            deviceSerial: stb.GetDeviceSerialNumber(),
-            portalName: "MapAppPortal"
-        };
-
-        GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
-
+    catch (e) {
+        LogMessage("Error " + e.message);
     }
 }
 
