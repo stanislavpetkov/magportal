@@ -1,17 +1,40 @@
 //ECMA 262 5 - do not support let and const
 
-var playerNo = 0;
+var backendIP;
+var backendPort;
+var backendUrl;
+
+var playerNo = 0; //it is in fact constant
+
+
 var stb = null;
+var stbDisplay = null;
 var lastStreamsAsString = null;
 var deviceInfo = null;
 var intervalObject = null;
 var playerPosition = -1.0;
-var interval = null;
+var playerAliveInterval = null;
+var playerWaitingForStartTimeOut = null;
 
-    function getPlayer() {
+var runMain = true;
+
+function getPlayer() {
     return stbPlayerManager.list[playerNo];
 }
 
+
+function setFullScreen()
+{
+    var player = getPlayer();
+    player.fullscreen = true;
+}
+
+function setQuarterScreen()
+{
+    var player = getPlayer();
+    player.fullscreen = false;
+    player.setViewport({x: stbDisplay.width/2, y: stbDisplay.height/2, width: stbDisplay.width/2, height: stbDisplay.height/2 });
+}
 
 function LogMessage(message) {
     var now = new Date().toUTCString();
@@ -20,7 +43,9 @@ function LogMessage(message) {
         //document.body.innerHTML += now + "\t" + message + "\n";
         return;
     }
-    logging.innerText += now + "\t" + message + "\n";
+    var logM = now + "\t" + message + "\n";
+    console.log(logM);
+    logging.innerText += logM;
 }
 
 function clearlog() {
@@ -30,11 +55,11 @@ function clearlog() {
 
 function RestartStream() {
     LogMessage("Stream Restart");
-    clearInterval(interval );
+    clearInterval(playerAliveInterval );
     clearTimeout(intervalObject);
     lastStreamsAsString = null;
     getPlayer().stop();
-    GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+    GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
 }
 
 function getStateString(state)
@@ -57,7 +82,7 @@ function CheckPosition()
     var state = getPlayer().state;
     if (playerPosition !== pos)
     {
-        document.getElementById("time").innerText = "Time: "+pos.toFixed(3)+"   State: "+getStateString( state);
+        document.getElementById("time").innerText = "Time: " + pos.toFixed(3) + "   State: " + getStateString(state);
         playerPosition = pos;
         return;
     }
@@ -99,8 +124,8 @@ function runPlayer(url) {
     player.onPlayStart = function () //event4
     {
         LogMessage("Player Start");
-        interval = setInterval(CheckPosition, 500);
-        //getPlayer().fullscreen = true;
+        playerAliveInterval = setInterval(CheckPosition, 500);
+        clearInterval(playerWaitingForStartTimeOut);
     };
 
     player.onPlayError = function () //event 5
@@ -131,7 +156,7 @@ function runPlayer(url) {
     // };
 
 
-    player.setViewport({x: 800, y: 500, width: 800, height: 600});
+    setFullScreen();
     player.play({
         uri: url,
         solution: 'auto'
@@ -139,7 +164,15 @@ function runPlayer(url) {
     player.aspectConversion = 3;
     player.videoWindowMode = 1; //always have video window
     player.loop = true;
+
+    playerWaitingForStartTimeOut = setTimeout(function ()
+    {
+        LogMessage("Player Didn't Start For allowed time");
+        RestartStream();
+    }, 8000);
 }
+
+
 
 
 function volumeUp() {
@@ -153,12 +186,33 @@ function volumeDown() {
     if (oldVolume > 0) stb.SetVolume(oldVolume - 1);
 }
 
+function isValidIPaddress(inputText)
+{
+    var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    return (inputText.match(ipformat));
+}
+
 function keyDownEventHandler(event) {
 
     // noinspection JSDeprecatedSymbols
     const keyCode = event.keyCode;
+    var player = getPlayer();
 
     switch (keyCode) {
+        case 89:
+        {
+            var tmelm = document.getElementById("time");
+
+            if (tmelm.style.display === "block")
+            {
+                tmelm.style.display = "none";
+            }
+            else
+            {
+                tmelm.style.display = "block";
+            }
+            break;
+        }
         case 107:
             volumeUp();
             break; //Volume Up
@@ -169,21 +223,87 @@ function keyDownEventHandler(event) {
             window.location.reload(true);
             break;//Bottom line rightmost key something like loop
         case 117:
-            var player = getPlayer();
-            var x = !player.fullscreen;
+            player.fullscreen? setQuarterScreen(): setFullScreen();
+            break;
+        case 122:
+            var elm = document.getElementById("serveripform");
 
-            if (x === false) {
-                player.setViewport({x: 800, y: 500, width: 800, height: 600});
+            if (elm.style.display === "block")
+            {
+                elm.style.display = "none";
+                break;
             }
-            player.fullscreen = x;
+
+            //setQuarterScreen();
+
+
+            elm.style.display="block";
+            var edit = document.getElementById("SERVERIP");
+            edit.focus();
+            edit.value = backendIP;
+            var ipval = document.getElementById("ipval");
+            ipval.innerHTML = "";
+
+
+
+
+
+            edit.addEventListener("keydown", function(event)
+            {
+                // noinspection JSDeprecatedSymbols
+                const keyCode = event.keyCode;
+                var form = document.getElementById("serveripform");
+                var edit = document.getElementById("SERVERIP");
+                var ipval = document.getElementById("ipval");
+
+                switch (keyCode) {
+                    case 13:
+                    {
+                            var x = edit.value.trim();
+                            try {
+                                if (isValidIPaddress(x)) {
+                                    ipval.innerHTML = "";
+                                    console.log(x);
+                                    var prevIP = backendIP;
+                                    backendIP = x;
+                                    backendUrl = "http://" + backendIP + ":" + backendPort;
+                                    SaveSettings();
+                                    form.style.display = "none";
+                                    if (prevIP!==backendIP) {
+                                        RestartStream();
+                                    }
+                                    //setFullScreen();
+                                    break;
+                                }
+                            }
+                            catch(e)
+                            {
+                                console.log("Exception: "+e.message);
+                            }
+                        ipval.innerHTML = "Invalid IP";
+                        break;
+                    }
+
+                    case 27:
+                    {
+                        form.style.display = "none";
+                        //setFullScreen();
+                        break;
+                    }
+
+                }
+
+            });
             break;
         case 8:
             clearlog();
             LogMessage("Supported device Model: " + stb.GetDeviceModel());
             break;//Back key
+        default:
+            LogMessage("Key Down Code: " + keyCode);
     }
 
-    LogMessage("Key Down Code: " + keyCode);
+
 }
 
 function onPortalEvent(txt) {
@@ -198,7 +318,9 @@ function newStreamUrlHandler(response) {
         var js = JSON.parse(response);
 
         try {
-            runPlayer(js.mainUrl);
+
+            runPlayer(runMain?js.mainUrl:js.backupUrl);
+            runMain = !runMain;
         }
         catch (e) {
             LogMessage("runPlayer Failed " + e.message);
@@ -222,7 +344,7 @@ function GetRequest(url, method, fn) {
             }
 
             intervalObject = setTimeout(function () {
-                GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
+                GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
             }, 5000);
         }
     };
@@ -238,6 +360,42 @@ function GetRequest(url, method, fn) {
 }
 
 
+function getCurrentSettings()
+{
+    return {
+        backendServerIp : backendIP,
+        backendServerPort: backendPort,
+        backendServerUrl: backendUrl
+    };
+}
+
+
+function getDefaultSettings()
+{
+    backendIP = "10.10.10.198";
+    backendPort = 13001;
+    backendUrl = "http://"+backendIP+":"+backendPort;
+
+    return getCurrentSettings();
+}
+
+
+
+function setSettings(config)
+{
+    backendIP = config.backendServerIp;
+    backendPort = config.backendServerPort;
+    backendUrl = config.backendServerUrl;
+}
+
+
+
+function SaveSettings()
+{
+    var x = getCurrentSettings();
+    stb.SaveUserData("magapp.json", JSON.stringify(x));
+}
+
 function magBootUp() {
     clearlog();
     try {
@@ -246,12 +404,7 @@ function magBootUp() {
             && (typeof stbAudioManager !== 'undefined');
 
 
-        if (validDevice) {
-            stb = gSTB;
-        }
-
-
-        if (stb === null) {
+        if (false === validDevice) {
             document.body.style.backgroundColor = "#FF0000";
             document.body.style.color = "#000000";
             document.body.innerHTML = "Unsupported device. No gSTB";
@@ -259,17 +412,73 @@ function magBootUp() {
             //We have to put the hls.js code here <MAYBE>
         }
         else {
+            stb = gSTB;
+            stbDisplay = stbDisplayManager.list[0];
+
+            var mySettings = stb.LoadUserData("magapp.json");
+
+
+
+            var jsSettings = getDefaultSettings();
+
+            if ((typeof mySettings !== 'string') || (mySettings === ""))
+            {
+
+                LogMessage("No valid settings saved");
+                stb.SaveUserData("magapp.json", JSON.stringify(jsSettings));
+            }
+            else
+            {
+                try {
+                    jsSettings = JSON.parse(mySettings);
+                    setSettings(jsSettings);
+                }
+                catch(e)
+                {
+                    LogMessage("Exception parse settings: "+e.message);
+                }
+
+
+            }
 
 
             document.addEventListener("keydown", keyDownEventHandler);
-            document.addEventListener("newstreamurl", newStreamUrlHandler);
-
-            stb.DeinitPlayer();
-            stb.InitPlayer();
 
             stbPlayerManager.list.forEach(function (player) {
                 player.stop();
             });
+
+
+var webLayer = null;
+var playerLayer = getPlayer().surface;
+var player2Layer = null;
+
+try {
+    stbSurfaceManager.list.forEach(function (surface)
+    {
+        if (surface.type === 1) {
+            webLayer = surface;
+        }
+        if (surface.type === 2) //player
+        {
+            if (surface.id !== playerLayer.id) {
+                player2Layer = surface;
+            }
+        }
+    });
+
+
+    if (!stbSurfaceManager.setOrder([player2Layer, playerLayer, webLayer])) {
+        console.log("ORDER NOT SET");
+    }
+    else {
+        console.log("ORDER SET");
+    }
+}
+catch(e)
+{
+    console.log("Exception::: "+e.message);
+}
 
             stb.onPortalEvent = onPortalEvent;
 
@@ -279,10 +488,10 @@ function magBootUp() {
                 deviceModelExt: stb.GetDeviceModelExt(),
                 deviceHardware: stb.GetDeviceVersionHardware(),
                 deviceSerial: stb.GetDeviceSerialNumber(),
-                portalName: "MapAppPortal"
+                portalName: "magapp.js"
             };
 
-            GetRequest("http://10.10.10.198:13001/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
+            GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
 
         }
     }
