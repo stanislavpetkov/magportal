@@ -16,7 +16,6 @@ var playerPosition = -1.0;
 var playerAliveInterval = null;
 var playerWaitingForStartTimeOut = null;
 
-var runMain = true;
 
 function getPlayer() {
     return stbPlayerManager.list[playerNo];
@@ -43,9 +42,27 @@ function LogMessage(message) {
         //document.body.innerHTML += now + "\t" + message + "\n";
         return;
     }
-    var logM = now + "\t" + message + "\n";
+    var logM = now + "  ::  " + message + "<br>";
     console.log(logM);
-    logging.innerText += logM;
+    var allText =logging.innerHTML+logM;
+
+    var splited = allText.split("<br>");
+
+    while (splited.length> 15)
+    {
+        splited.shift();
+    }
+    allText = "";
+    splited.forEach(
+        function (elm)
+        {
+            if (elm !== "") {
+                allText += elm + "<br>";
+            }
+        }
+    );
+
+    logging.innerHTML = allText;
 }
 
 function clearlog() {
@@ -82,7 +99,14 @@ function CheckPosition()
     var state = getPlayer().state;
     if (playerPosition !== pos)
     {
-        document.getElementById("time").innerText = "Time: " + pos.toFixed(3) + "   State: " + getStateString(state);
+        var days = pos / 86400.0;
+        var rest = pos % 86400.0;
+        var date = new Date(null);
+        date.setSeconds(rest); // specify value for SECONDS here
+        var timeString = date.toISOString().substr(11, 8);
+
+        var vis = days.toFixed(0)+" day(s), "+timeString;
+        document.getElementById("time").innerText = "Media position: " + vis + ", State: " + getStateString(state);
         playerPosition = pos;
         return;
     }
@@ -202,14 +226,17 @@ function keyDownEventHandler(event) {
         case 89:
         {
             var tmelm = document.getElementById("time");
+            var log = document.getElementById("logging");
 
             if (tmelm.style.display === "block")
             {
                 tmelm.style.display = "none";
+                log.style.display = "none"
             }
             else
             {
                 tmelm.style.display = "block";
+                log.style.display = "block"
             }
             break;
         }
@@ -319,8 +346,7 @@ function newStreamUrlHandler(response) {
 
         try {
 
-            runPlayer(runMain?js.mainUrl:js.backupUrl);
-            runMain = !runMain;
+            runPlayer(js.url);
         }
         catch (e) {
             LogMessage("runPlayer Failed " + e.message);
@@ -351,6 +377,10 @@ function GetRequest(url, method, fn) {
 
     xmlhttp.ontimeout = function () {
         LogMessage("TimeOut");
+    };
+    xmlhttp.onerror = function ()
+    {
+        LogMessage("Http communication error::: API Error ");
     };
 
     xmlhttp.timeout = 1000;
@@ -407,7 +437,8 @@ function magBootUp() {
         if (false === validDevice) {
             document.body.style.backgroundColor = "#FF0000";
             document.body.style.color = "#000000";
-            document.body.innerHTML = "Unsupported device. No gSTB";
+            LogMessage("Unsupported device. No gSTB");
+
 
             //We have to put the hls.js code here <MAYBE>
         }
