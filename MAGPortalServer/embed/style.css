@@ -70,3 +70,37 @@ a {
     color: lightblue;
     z-index: 50;
 }
+
+.LAN
+{
+    display: none;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 1.0);
+    position: absolute;
+    height: 30px;
+    top: calc(100% - 90px);
+    left: 30px;
+    width: calc(100% - 60px);
+    line-height: 30px;/*same as height */
+    text-align: left;
+    font-weight: bold;
+    color: red;
+    z-index: 98;
+}
+
+.Notification
+{
+    display: none;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 1.0);
+    position: absolute;
+    height: 30px;
+    top: calc(100% - 120px);
+    left: 30px;
+    width: calc(100% - 60px);
+    line-height: 30px;/*same as height */
+    text-align: left;
+    font-weight: bold;
+    color: yellow;
+    z-index: 98;
+}

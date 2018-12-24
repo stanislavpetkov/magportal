@@ -12,7 +12,33 @@
     <script>
 
         function LogMessageInt(message) {
-            document.getElementById("logging").innerText += new Date().toUTCString() + "\t" + message + "\n";
+            var now = new Date().toUTCString();
+            var logging = document.getElementById("logging");
+            if ((typeof logging === 'undefined') || logging === null) {
+                //document.body.innerHTML += now + "\t" + message + "\n";
+                return;
+            }
+            var logM = now + "  ::  " + message + "<br>";
+            console.log(logM);
+            var allText =logging.innerHTML+logM;
+
+            var splited = allText.split("<br>");
+
+            while (splited.length> 26)
+            {
+                splited.shift();
+            }
+            allText = "";
+            splited.forEach(
+                function (elm)
+                {
+                    if (elm !== "") {
+                        allText += elm + "<br>";
+                    }
+                }
+            );
+
+            logging.innerHTML = allText;
         }
 
 
@@ -48,11 +74,13 @@
 </head>
 <body>
 <div id="time" class="time">Hello</div>
+<div id="LAN" class="LAN">Hello</div>
+<div id="Notification" class="Notification"></div>
 
 
 <div id="serveripform" class="serveripform">
     <h2 class="textup">API Backend configuration</h2>
-<label for="SERVERIP">API Server IP   </label><input type="text" id="SERVERIP" name="ServerIP" class="IPEDIT"/><span id="ipval"></span>
+<label for="SERVERIP">API Server host</label><input type="text" id="SERVERIP" name="ServerIP" class="IPEDIT"/><span id="ipval"></span>
     <p style="text-align: center">OK to save, ESC to cancel</p>
 </div>
 

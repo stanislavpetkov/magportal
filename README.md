@@ -1,3 +1,2 @@
 # magportal
-test mag portal
-1
+Mag internal portal

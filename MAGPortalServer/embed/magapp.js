@@ -3,6 +3,7 @@
 var backendIP;
 var backendPort;
 var backendUrl;
+var aspectConversion = 1;
 
 var playerNo = 0; //it is in fact constant
 
@@ -15,7 +16,9 @@ var intervalObject = null;
 var playerPosition = -1.0;
 var playerAliveInterval = null;
 var playerWaitingForStartTimeOut = null;
-
+var weHadNetworkIssue = false;
+var NetworkCheckInterval = null;
+var APIError = false;
 
 function getPlayer() {
     return stbPlayerManager.list[playerNo];
@@ -48,7 +51,7 @@ function LogMessage(message) {
 
     var splited = allText.split("<br>");
 
-    while (splited.length> 15)
+    while (splited.length> 26)
     {
         splited.shift();
     }
@@ -74,6 +77,7 @@ function RestartStream() {
     LogMessage("Stream Restart");
     clearInterval(playerAliveInterval );
     clearTimeout(intervalObject);
+    clearInterval(playerWaitingForStartTimeOut);
     lastStreamsAsString = null;
     getPlayer().stop();
     GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
@@ -93,6 +97,48 @@ switch (state) {
 
 }
 
+function displayUINotification(text)
+{
+
+    if (text.trim().length<1) return;
+
+    var elm = document.getElementById("Notification");
+
+    elm.innerText = text.trim();
+    elm.style.display = "block";
+
+    setTimeout(function(){
+        document.getElementById("Notification").style.display = "none";
+    }, 1000);
+}
+
+function CheckNetwork()
+{
+    var noGW = (isStringEmpty(stb.GetNetworkGateways()));
+    var linkStatus = stb.GetLanLinkStatus();
+
+    var elm = document.getElementById("LAN");
+    if (!linkStatus)
+    {
+        elm.style.display = "block";
+        elm.innerText = "Network is Down";
+    }
+    else if (noGW)
+    {
+        elm.style.display = "block";
+        elm.innerText = "Network Gateway is not assigned yet";
+    } else if (APIError)
+    {
+        elm.style.display = "block";
+        elm.innerText = "API Server Communication Error";
+    } else
+    {
+        elm.style.display = "none";
+        elm.innerText = "";
+    }
+
+
+}
 function CheckPosition()
 {
     var pos = getPlayer().positionMs/1000;
@@ -106,7 +152,10 @@ function CheckPosition()
         var timeString = date.toISOString().substr(11, 8);
 
         var vis = days.toFixed(0)+" day(s), "+timeString;
+
+
         document.getElementById("time").innerText = "Media position: " + vis + ", State: " + getStateString(state);
+
         playerPosition = pos;
         return;
     }
@@ -185,7 +234,7 @@ function runPlayer(url) {
         uri: url,
         solution: 'auto'
     });
-    player.aspectConversion = 3;
+    player.aspectConversion = aspectConversion;
     player.videoWindowMode = 1; //always have video window
     player.loop = true;
 
@@ -193,7 +242,7 @@ function runPlayer(url) {
     {
         LogMessage("Player Didn't Start For allowed time");
         RestartStream();
-    }, 8000);
+    }, 12000);
 }
 
 
@@ -216,6 +265,21 @@ function isValidIPaddress(inputText)
     return (inputText.match(ipformat));
 }
 
+
+function aspectConvertionToString(arc)
+{
+    switch (arc)
+    {
+        case 0: return "anamorphic (video is stretched for the whole screen)";
+        case 1: return "Letter box mode";
+        case 2: return "Pan&Scan mode";
+        case 3: return "between Letter Box Box and Pan&Scan";
+        case 4: return "enlarged mode";
+        case 5: return "optimal mode";
+    }
+    return "Unknown"
+}
+
 function keyDownEventHandler(event) {
 
     // noinspection JSDeprecatedSymbols
@@ -223,6 +287,18 @@ function keyDownEventHandler(event) {
     var player = getPlayer();
 
     switch (keyCode) {
+        case 76:
+        {
+            if (stb.IsVirtualKeyboardActive())
+            {
+                stb.HideVirtualKeyboard();
+            }
+            else
+            {
+                stb.ShowVirtualKeyboard();
+            }
+            break;
+        }
         case 89:
         {
             var tmelm = document.getElementById("time");
@@ -250,7 +326,15 @@ function keyDownEventHandler(event) {
             window.location.reload(true);
             break;//Bottom line rightmost key something like loop
         case 117:
-            player.fullscreen? setQuarterScreen(): setFullScreen();
+
+            player.aspectConversion = (player.aspectConversion+1) % 6;
+
+            displayUINotification(aspectConvertionToString(player.aspectConversion));
+            aspectConversion = player.aspectConversion;
+            SaveSettings();
+            //player.fullscreen? setQuarterScreen(): setFullScreen();
+
+
             break;
         case 122:
             var elm = document.getElementById("serveripform");
@@ -360,12 +444,48 @@ function newStreamUrlHandler(response) {
 
 }
 
+function isStringEmpty(str) {
+    if (!str) return true;
+    return str.trim().length <= 0;
+
+}
 
 function GetRequest(url, method, fn) {
+
+    var noGW = (isStringEmpty(stb.GetNetworkGateways()));
+    var linkStatus = stb.GetLanLinkStatus();
+
+    if ((linkStatus === false) || noGW)
+    {
+        weHadNetworkIssue = true;
+        if (noGW && linkStatus)
+        {
+            LogMessage("Network ::: No Gateway");
+        }
+        else
+        {
+            LogMessage("Network ::: Link is Down");
+        }
+
+
+        intervalObject = setTimeout(function () {
+            GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
+        }, 5000);
+        return;
+    }
+
+
+    if (weHadNetworkIssue)
+    {
+        weHadNetworkIssue = false;
+        LogMessage("Network ::: Network issue resolved");
+    }
+
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === XMLHttpRequest.DONE) {
             if (xmlhttp.status === 200) {
+                APIError = false;
                 fn(xmlhttp.response);
             }
 
@@ -377,10 +497,12 @@ function GetRequest(url, method, fn) {
 
     xmlhttp.ontimeout = function () {
         LogMessage("TimeOut");
+        APIError = true;
     };
     xmlhttp.onerror = function ()
     {
         LogMessage("Http communication error::: API Error ");
+        APIError = true;
     };
 
     xmlhttp.timeout = 1000;
@@ -395,7 +517,8 @@ function getCurrentSettings()
     return {
         backendServerIp : backendIP,
         backendServerPort: backendPort,
-        backendServerUrl: backendUrl
+        backendServerUrl: backendUrl,
+        aspectConversion: aspectConversion
     };
 }
 
@@ -403,9 +526,9 @@ function getCurrentSettings()
 function getDefaultSettings()
 {
     backendIP = "10.10.10.198";
-    backendPort = 13001;
+    backendPort = 3000;
     backendUrl = "http://"+backendIP+":"+backendPort;
-
+    aspectConversion = 1;
     return getCurrentSettings();
 }
 
@@ -416,6 +539,8 @@ function setSettings(config)
     backendIP = config.backendServerIp;
     backendPort = config.backendServerPort;
     backendUrl = config.backendServerUrl;
+    aspectConversion = config.aspectConversion;
+    getPlayer().aspectConversion = config.aspectConversion;
 }
 
 
@@ -529,6 +654,9 @@ catch(e)
     catch (e) {
         LogMessage("Error " + e.message);
     }
+
+
+    NetworkCheckInterval = setInterval(CheckNetwork, 500);
 }
 
 
