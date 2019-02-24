@@ -20,9 +20,9 @@
             }
             var logM = now + "  ::  " + message;
 
-            var myLog = stb.LoadUserData("mylog.log");
+            var myLog = gSTB.LoadUserData("mylog.log");
             myLog.append(logM+"\n");
-            stb.SaveUserData("mylog.log", myLog);
+            gSTB.SaveUserData("mylog.log", myLog);
 
             logM +=  + "<br>";
             console.log(logM);
