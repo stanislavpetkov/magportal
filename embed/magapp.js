@@ -83,7 +83,7 @@ function displayUINotification(text)
 
     setTimeout(function(){
         document.getElementById("Notification").style.display = "none";
-    }, 1000);
+    }, 2000);
 }
 
 function CheckNetwork()
@@ -479,7 +479,7 @@ function GetRequest(url, method, fn) {
         APIError = true;
     };
 
-    xmlhttp.timeout = 1000;
+    xmlhttp.timeout = 5000;
 
     xmlhttp.open(method, url, true);
     xmlhttp.send();
