@@ -21,7 +21,7 @@
             var logM = now + "  ::  " + message;
 
             var myLog = gSTB.LoadUserData("mylog.log");
-            myLog.append(logM+"\n");
+            myLog += logM+"\n";
             gSTB.SaveUserData("mylog.log", myLog);
 
             logM +=  + "<br>";
