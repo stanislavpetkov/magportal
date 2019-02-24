@@ -50,7 +50,6 @@
 
 
         window.onerror = function (msg, url, line, col, error) {
-            LogMessageInt("ss");
             var extra = !col ? '' : '\ncolumn: ' + col;
             extra += !error ? '' : '\nerror: ' + error +"  ";
 

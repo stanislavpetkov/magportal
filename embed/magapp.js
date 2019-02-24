@@ -39,33 +39,7 @@ function setQuarterScreen()
 }
 
 function LogMessage(message) {
-    var now = new Date().toUTCString();
-    var logging = document.getElementById("logging");
-    if ((typeof logging === 'undefined') || logging === null) {
-        //document.body.innerHTML += now + "\t" + message + "\n";
-        return;
-    }
-    var logM = now + "  ::  " + message + "<br>";
-    console.log(logM);
-    var allText =logging.innerHTML+logM;
-
-    var splited = allText.split("<br>");
-
-    while (splited.length> 26)
-    {
-        splited.shift();
-    }
-    allText = "";
-    splited.forEach(
-        function (elm)
-        {
-            if (elm !== "") {
-                allText += elm + "<br>";
-            }
-        }
-    );
-
-    logging.innerHTML = allText;
+    LogMessageInt(message);
 }
 
 function clearlog() {
