@@ -18,7 +18,13 @@
                 //document.body.innerHTML += now + "\t" + message + "\n";
                 return;
             }
-            var logM = now + "  ::  " + message + "<br>";
+            var logM = now + "  ::  " + message;
+
+            var myLog = stb.LoadUserData("mylog.log");
+            myLog.append(logM+"\n");
+            stb.SaveUserData("mylog.log", myLog);
+
+            logM +=  + "<br>";
             console.log(logM);
             var allText =logging.innerHTML+logM;
 
@@ -39,6 +45,7 @@
             );
 
             logging.innerHTML = allText;
+
         }
 
 
