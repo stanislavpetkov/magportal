@@ -19,7 +19,7 @@ var playerWaitingForStartTimeOut = null;
 var weHadNetworkIssue = false;
 var NetworkCheckInterval = null;
 var APIError = false;
-var AliveCounter = 7200;
+var AliveCounter = 0;
 
 
 function getPlayer() {
