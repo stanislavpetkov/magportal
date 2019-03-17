@@ -4,10 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
+    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="Debugging removed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/embed/services.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,14 +22,14 @@
     <session id="1986593008">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.closed" value="11" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="5" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,9 +57,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="982" />
-          <entry key="dummy" value="1" />
+          <entry key="dummy" value="16" />
           <entry key="html" value="1351" />
-          <entry key="js" value="10576" />
+          <entry key="js" value="10917" />
           <entry key="md" value="19" />
           <entry key="sh" value="54" />
           <entry key="txt" value="165" />
@@ -70,19 +70,19 @@
           <entry key="Bash" value="54" />
           <entry key="CSS" value="982" />
           <entry key="HTML" value="1351" />
-          <entry key="JavaScript" value="10576" />
-          <entry key="PLAIN_TEXT" value="185" />
+          <entry key="JavaScript" value="10917" />
+          <entry key="PLAIN_TEXT" value="200" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="405">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -114,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/embed/magapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -135,14 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>15</find>
-      <find>load</find>
-      <find>logme</find>
-      <find>api</find>
-      <find>get</find>
-      <find>&quot;GET</find>
-      <find>full</find>
-      <find>netw</find>
       <find>checkne</find>
       <find>asp</find>
       <find>aspe</find>
@@ -165,6 +157,14 @@
       <find>json</find>
       <find>loaduse</find>
       <find>saveuse</find>
+      <find>timeout</find>
+      <find>5000</find>
+      <find>audio</find>
+      <find>loop</find>
+      <find>player</find>
+      <find>start</find>
+      <find>playerAliveInterval</find>
+      <find>netw</find>
     </findStrings>
     <replaceStrings>
       <replace>stbDisplay</replace>
@@ -191,8 +191,8 @@
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/style.css" />
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/embed/magapp.js" />
         <option value="$PROJECT_DIR$/embed/services.html" />
+        <option value="$PROJECT_DIR$/embed/magapp.js" />
       </list>
     </option>
   </component>
@@ -219,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,7 +231,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,7 +287,9 @@
       <workItem from="1545550889419" duration="6360000" />
       <workItem from="1545634664331" duration="15389000" />
       <workItem from="1545655221571" duration="54000" />
-      <workItem from="1551014037690" duration="1043000" />
+      <workItem from="1551014037690" duration="1492000" />
+      <workItem from="1551072171875" duration="679000" />
+      <workItem from="1552840957694" duration="2418000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -359,11 +361,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551014781539</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Debugging removed">
+      <created>1551015085354</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1551015085354</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Debugging removed">
+      <created>1551015383697</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1551015383697</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88856000" />
+    <option name="totallyTimeSpent" value="92402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1053" extended-state="6" />
@@ -415,6 +431,13 @@
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/placeholder.txt" />
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/app.js" />
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
+    <entry file="file://$PROJECT_DIR$/embed/services.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -438,15 +461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/embed/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/embed/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

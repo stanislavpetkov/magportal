@@ -19,6 +19,8 @@ var playerWaitingForStartTimeOut = null;
 var weHadNetworkIssue = false;
 var NetworkCheckInterval = null;
 var APIError = false;
+var AliveCounter = 7200;
+
 
 function getPlayer() {
     return stbPlayerManager.list[playerNo];
@@ -88,6 +90,13 @@ function displayUINotification(text)
 
 function CheckNetwork()
 {
+
+    if (AliveCounter <= 1)
+    {
+        LogMessage("JS Alive!!! -- DEBUG");
+        AliveCounter = 7200;
+    }
+    AliveCounter--;
     var noGW = (isStringEmpty(stb.GetNetworkGateways()));
     var linkStatus = stb.GetLanLinkStatus();
 
@@ -157,15 +166,33 @@ function runPlayer(url) {
 
     };
 
-    // player.onTracksInfo = function () //event2
-    // {
-    //     LogMessage("Player onTracksInfo");
-    // };
-    //
-    // player.onContentInfo = function () //event7
-    // {
-    //     LogMessage("Content Info");
-    // };
+    player.onTracksInfo = function () //event2
+    {
+        LogMessage("Player onTracksInfo");
+        var atr  = player.audioTracks;
+        if (!Array.isArray(atr) || !atr.length) {
+            // array does not exist, is not an array, or is empty
+            // ⇒ do not attempt to process array
+            RestartStream();
+            return;
+        }
+
+        if (player.audioPID !== atr[0].pid)
+        {
+            LogMessage("Force Audio PID");
+            player.audioPID = atr[0].pid;
+        }
+        else {
+            LogMessage("Audio is selected. PID "+player.audioPID.toString());
+        }
+
+
+    };
+
+    player.onContentInfo = function () //event7
+    {
+        LogMessage("Content Info");
+    };
 
 
     player.onPlayStart = function () //event4
@@ -210,7 +237,7 @@ function runPlayer(url) {
     });
     player.aspectConversion = aspectConversion;
     player.videoWindowMode = 1; //always have video window
-    player.loop = true;
+    player.loop = false;
 
     playerWaitingForStartTimeOut = setTimeout(function ()
     {
@@ -457,10 +484,10 @@ function GetRequest(url, method, fn) {
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
-            if (xmlhttp.status === 200) {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
                 APIError = false;
-                fn(xmlhttp.response);
+                fn(this.response);
             }
 
             intervalObject = setTimeout(function () {
@@ -479,7 +506,7 @@ function GetRequest(url, method, fn) {
         APIError = true;
     };
 
-    xmlhttp.timeout = 5000;
+    xmlhttp.timeout = 10000;
 
     xmlhttp.open(method, url, true);
     xmlhttp.send();
@@ -631,6 +658,8 @@ catch(e)
 
 
     NetworkCheckInterval = setInterval(CheckNetwork, 500);
+
+
 }
 
 

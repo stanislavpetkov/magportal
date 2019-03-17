@@ -1,3 +1,3 @@
 #!/bin/bash
 
-scp embed/*  root@10.10.10.182:/home/web/
+scp embed/*  root@172.16.58.11:/home/web/
