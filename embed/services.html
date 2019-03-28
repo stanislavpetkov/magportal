@@ -22,11 +22,9 @@
 
             var myLog = gSTB.LoadUserData("mylog.log");
             myLog += logM+"\n";
-            gSTB.SaveUserData("mylog.log", myLog);
-
-            logM +=  + "<br>";
+            gSTB.SaveUserData("mylog.log", myLog);          
             console.log(logM);
-            var allText =logging.innerHTML+logM;
+            var allText =logging.innerHTML+logM+ "<br>";
 
             var splited = allText.split("<br>");
 
