@@ -180,10 +180,19 @@ function runPlayer(url) {
 
         LogMessage("Player onTracksInfo  "+JSON.stringify(atr));
 
+
+
         if (player.audioPID !== atr[0].pid)
         {
             LogMessage("Force Audio PID");
             player.audioPID = atr[0].pid;
+
+            if (atr.type === 0 )
+            {
+                LogMessage("Audio not recognized.");
+                RestartStream();
+                return;
+            }
         }
         else {
             LogMessage("Audio is selected. PID "+player.audioPID.toString());

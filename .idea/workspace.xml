@@ -21,15 +21,15 @@
     <session id="1986593008">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="6" />
+          <entry key="project.open.time.8" value="7" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,7 +59,7 @@
           <entry key="css" value="982" />
           <entry key="dummy" value="16" />
           <entry key="html" value="1351" />
-          <entry key="js" value="10947" />
+          <entry key="js" value="11026" />
           <entry key="md" value="19" />
           <entry key="sh" value="54" />
           <entry key="txt" value="181" />
@@ -70,7 +70,7 @@
           <entry key="Bash" value="54" />
           <entry key="CSS" value="982" />
           <entry key="HTML" value="1351" />
-          <entry key="JavaScript" value="10947" />
+          <entry key="JavaScript" value="11026" />
           <entry key="PLAIN_TEXT" value="216" />
         </counts>
       </usages-collector>
@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+            <state relative-caret-position="375">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -117,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/embed/magapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="180" column="64" lean-forward="true" selection-start-line="180" selection-start-column="64" selection-end-line="180" selection-end-column="64" />
+            <state relative-caret-position="308">
+              <caret line="176" column="28" lean-forward="true" selection-start-line="176" selection-start-column="28" selection-end-line="176" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -219,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,7 +231,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,7 +292,8 @@
       <workItem from="1552840957694" duration="3210000" />
       <workItem from="1554057952896" duration="9000" />
       <workItem from="1554057997450" duration="4000" />
-      <workItem from="1554484831882" duration="688000" />
+      <workItem from="1554484831882" duration="785000" />
+      <workItem from="1554485992476" duration="232000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -399,11 +400,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552844326316</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Alive debugging">
+      <created>1554485886788</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554485886788</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93895000" />
+    <option name="totallyTimeSpent" value="94224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1053" extended-state="6" />
@@ -458,8 +466,8 @@
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
     <entry file="file://$PROJECT_DIR$/embed/services.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        <state relative-caret-position="375">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -486,8 +494,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/embed/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="180" column="64" lean-forward="true" selection-start-line="180" selection-start-column="64" selection-end-line="180" selection-end-column="64" />
+        <state relative-caret-position="308">
+          <caret line="176" column="28" lean-forward="true" selection-start-line="176" selection-start-column="28" selection-end-line="176" selection-end-column="28" />
         </state>
       </provider>
     </entry>
