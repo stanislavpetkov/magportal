@@ -168,14 +168,17 @@ function runPlayer(url) {
 
     player.onTracksInfo = function () //event2
     {
-        LogMessage("Player onTracksInfo");
+
         var atr  = player.audioTracks;
         if (!Array.isArray(atr) || !atr.length) {
+            LogMessage("Player onTracksInfo Invalid audio");
             // array does not exist, is not an array, or is empty
             // ⇒ do not attempt to process array
             RestartStream();
             return;
         }
+
+        LogMessage("Player onTracksInfo  "+JSON.stringify(atr));
 
         if (player.audioPID !== atr[0].pid)
         {
