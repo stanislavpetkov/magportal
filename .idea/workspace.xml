@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect.sh" beforeDir="false" afterPath="$PROJECT_DIR$/connect.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getfb.sh" beforeDir="false" afterPath="$PROJECT_DIR$/getfb.sh" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -179,7 +175,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
     <property name="last.edited.regexp" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/streamer" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -240,7 +236,7 @@
       <workItem from="1554057997450" duration="4000" />
       <workItem from="1554484831882" duration="785000" />
       <workItem from="1554485992476" duration="232000" />
-      <workItem from="1557248075682" duration="2845000" />
+      <workItem from="1557248075682" duration="3759000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -361,15 +357,21 @@
       <option name="project" value="LOCAL" />
       <updated>1557249437275</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Alive debugging">
+      <created>1557255794161</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557255794161</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97069000" />
+    <option name="totallyTimeSpent" value="97983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947257" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
