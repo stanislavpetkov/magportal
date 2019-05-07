@@ -463,6 +463,15 @@ function isStringEmpty(str) {
 
 }
 
+
+function RetryGetUrl(timeOutSeconds)
+{
+    clearTimeout(intervalObject);
+    intervalObject = setTimeout(function () {
+        GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
+    }, timeOutSeconds*1000);
+}
+
 function GetRequest(url, method, fn) {
 
     var noGW = (isStringEmpty(stb.GetNetworkGateways()));
@@ -481,9 +490,7 @@ function GetRequest(url, method, fn) {
         }
 
 
-        intervalObject = setTimeout(function () {
-            GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
-        }, 5000);
+        RetryGetUrl(5);
         return;
     }
 
@@ -500,11 +507,11 @@ function GetRequest(url, method, fn) {
             if (this.status === 200) {
                 APIError = false;
                 fn(this.response);
+                RetryGetUrl(300);
             }
-
-            intervalObject = setTimeout(function () {
-                GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", fn)
-            }, 5000);
+            else {
+                RetryGetUrl(5);
+            }
         }
     };
 
