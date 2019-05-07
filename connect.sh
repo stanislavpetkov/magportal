@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ssh root@172.16.58.11
+sshpass -f <(printf '%s\n' 930920) ssh root@172.16.58.11

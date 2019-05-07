@@ -464,7 +464,7 @@ function isStringEmpty(str) {
 }
 
 
-function RetryGetUrl(timeOutSeconds)
+function RetryGetUrl(timeOutSeconds, fn)
 {
     clearTimeout(intervalObject);
     intervalObject = setTimeout(function () {
@@ -490,7 +490,7 @@ function GetRequest(url, method, fn) {
         }
 
 
-        RetryGetUrl(5);
+        RetryGetUrl(5, fn);
         return;
     }
 
@@ -507,10 +507,10 @@ function GetRequest(url, method, fn) {
             if (this.status === 200) {
                 APIError = false;
                 fn(this.response);
-                RetryGetUrl(300);
+                RetryGetUrl(300, fn);
             }
             else {
-                RetryGetUrl(5);
+                RetryGetUrl(5, fn);
             }
         }
     };
