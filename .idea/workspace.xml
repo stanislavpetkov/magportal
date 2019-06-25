@@ -4,7 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="" />
+    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/embed/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getfb.sh" beforeDir="false" afterPath="$PROJECT_DIR$/getfb.sh" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state relative-caret-position="271">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -56,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/embed/magapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="512" column="20" selection-start-line="512" selection-start-column="16" selection-end-line="512" selection-end-column="20" />
+            <state relative-caret-position="465">
+              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -236,6 +241,7 @@
       <workItem from="1554485992476" duration="232000" />
       <workItem from="1557248075682" duration="3759000" />
       <workItem from="1557343931943" duration="29000" />
+      <workItem from="1561437354488" duration="353000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -367,10 +373,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98012000" />
+    <option name="totallyTimeSpent" value="98365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947257" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -416,13 +423,6 @@
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/placeholder.txt" />
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/app.js" />
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
-    <entry file="file://$PROJECT_DIR$/embed/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -450,10 +450,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/embed/services.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/embed/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="512" column="20" selection-start-line="512" selection-start-column="16" selection-end-line="512" selection-end-column="20" />
+        <state relative-caret-position="465">
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
         </state>
       </provider>
     </entry>

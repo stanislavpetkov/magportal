@@ -46,7 +46,15 @@ function LogMessage(message) {
 
 function clearlog() {
     document.getElementById("logging").innerText = "";
-    LogMessage("Log cleared");
+    if (doVisualLog)
+    {
+        LogMessage("Log cleared");
+    }
+    else
+    {
+        LogMessage("Visual Logging is disabled");
+    }
+
 }
 
 function RestartStream() {

@@ -11,6 +11,7 @@
 
     <script>
 
+        const doVisualLog=false;
         function LogMessageInt(message) {
             var now = new Date().toUTCString();
             var logging = document.getElementById("logging");
@@ -24,26 +25,27 @@
             myLog += logM+"\n";
             gSTB.SaveUserData("mylog.log", myLog);          
             console.log(logM);
-            var allText =logging.innerHTML+logM+ "<br>";
 
-            var splited = allText.split("<br>");
-
-            while (splited.length> 26)
+            if (doVisualLog)
             {
-                splited.shift();
-            }
-            allText = "";
-            splited.forEach(
-                function (elm)
-                {
-                    if (elm !== "") {
-                        allText += elm + "<br>";
-                    }
+                var allText = logging.innerHTML + logM + "<br>";
+
+                var splited = allText.split("<br>");
+
+                while (splited.length > 26) {
+                    splited.shift();
                 }
-            );
+                allText = "";
+                splited.forEach(
+                    function (elm) {
+                        if (elm !== "") {
+                            allText += elm + "<br>";
+                        }
+                    }
+                );
 
-            logging.innerHTML = allText;
-
+                logging.innerHTML = allText;
+            }
         }
 
 
