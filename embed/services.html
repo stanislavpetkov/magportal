@@ -18,6 +18,7 @@
             var logM = now + "  ::  " + message;
             console.log(logM);
 
+
             var myLog = gSTB.LoadUserData("mylog.log");
             myLog += logM+"\n";
             gSTB.SaveUserData("mylog.log", myLog);          
