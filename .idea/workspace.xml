@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/embed/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getfb.sh" beforeDir="false" afterPath="$PROJECT_DIR$/getfb.sh" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/embed/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state relative-caret-position="391">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
         </entry>
@@ -58,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/embed/magapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="331">
+              <caret line="658" column="22" lean-forward="true" selection-start-line="658" selection-start-column="22" selection-end-line="658" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -135,8 +133,8 @@
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/style.css" />
         <option value="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/embed/services.html" />
         <option value="$PROJECT_DIR$/embed/magapp.js" />
+        <option value="$PROJECT_DIR$/embed/services.html" />
       </list>
     </option>
   </component>
@@ -241,7 +239,7 @@
       <workItem from="1554485992476" duration="232000" />
       <workItem from="1557248075682" duration="3759000" />
       <workItem from="1557343931943" duration="29000" />
-      <workItem from="1561437354488" duration="353000" />
+      <workItem from="1561437354488" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -369,11 +367,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557255794161</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Disable visual logging by constant">
+      <created>1561437739807</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561437739808</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Disable visual logging by constant">
+      <created>1561438216234</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561438216234</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98365000" />
+    <option name="totallyTimeSpent" value="99250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -409,7 +421,8 @@
     <MESSAGE value="Logging and Time are showed with &lt;i&gt; key&#10;API endpoint editing" />
     <MESSAGE value="Debugging removed" />
     <MESSAGE value="Alive debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alive debugging" />
+    <MESSAGE value="Disable visual logging by constant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable visual logging by constant" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MAGPortalServer/views/index.pug" />
@@ -450,17 +463,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/embed/services.html">
+    <entry file="file://$PROJECT_DIR$/embed/magapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state relative-caret-position="331">
+          <caret line="658" column="22" lean-forward="true" selection-start-line="658" selection-start-column="22" selection-end-line="658" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/embed/magapp.js">
+    <entry file="file://$PROJECT_DIR$/embed/services.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        <state relative-caret-position="391">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
