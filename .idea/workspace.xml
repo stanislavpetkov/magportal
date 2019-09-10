@@ -110,7 +110,7 @@
       <workItem from="1557343931943" duration="29000" />
       <workItem from="1561437354488" duration="2131000" />
       <workItem from="1561439696339" duration="5000" />
-      <workItem from="1568092114607" duration="352000" />
+      <workItem from="1568092114607" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -266,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561438791982</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="setloop false">
+      <created>1568092480837</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1568092480837</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +297,7 @@
     <MESSAGE value="Debugging removed" />
     <MESSAGE value="Alive debugging" />
     <MESSAGE value="Disable visual logging by constant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable visual logging by constant" />
+    <MESSAGE value="setloop false" />
+    <option name="LAST_COMMIT_MESSAGE" value="setloop false" />
   </component>
 </project>

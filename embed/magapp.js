@@ -63,7 +63,7 @@ function RestartStream() {
     clearTimeout(intervalObject);
     clearInterval(playerWaitingForStartTimeOut);
     lastStreamsAsString = null;
-    getPlayer().SetLoop(0);
+    getPlayer().loop = false;
     getPlayer().stop();
     GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
 }
@@ -163,7 +163,7 @@ function runPlayer(url) {
 
     LogMessage("Run Player - " + url);
     player.stop();
-    getPlayer().SetLoop(0);
+    getPlayer().loop = false;
     player.volume = 100;
     var output = stbAudioManager.list[0];
     output.add(player);
