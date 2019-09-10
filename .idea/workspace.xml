@@ -6,65 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/embed/services.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/embed/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="90" column="13" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/embed/magapp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -74,68 +22,8 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>player.as</find>
-      <find>aspectConversion</find>
-      <find>allow</find>
-      <find>backendUrl</find>
-      <find>8000</find>
-      <find>130001</find>
-      <find>3000</find>
-      <find>1300</find>
-      <find>12000</find>
-      <find>settime</find>
-      <find>restart</find>
-      <find>playerWaitingForStartTimeOut</find>
-      <find>remote</find>
-      <find>json</find>
-      <find>loaduse</find>
-      <find>saveuse</find>
-      <find>timeout</find>
-      <find>audio</find>
-      <find>loop</find>
-      <find>player</find>
-      <find>start</find>
-      <find>playerAliveInterval</find>
-      <find>netw</find>
-      <find>content</find>
-      <find>5000</find>
-      <find>GetRequest</find>
-      <find>newStreamUrlHandler</find>
-      <find>fn</find>
-      <find>retr</find>
-      <find>dovi</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>stbDisplay</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/html/portal.html" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/portal/index.html" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/routes/index.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/index.html" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/embed/index.html" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/public/placeholder.txt.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/app.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/deploy.sh" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/embed/services.html" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/embed/style.css" />
-        <option value="$PROJECT_DIR$/MAGPortalServer/embed/magapp.js" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/embed/magapp.js" />
-        <option value="$PROJECT_DIR$/embed/services.html" />
-      </list>
-    </option>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -149,25 +37,7 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="magportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magportal" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1QdEX4Zxdcpjddya7g2WEQVqbze" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -175,7 +45,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
     <property name="last.edited.regexp" value="" />
-    <property name="last_opened_file_path" value="$USER_HOME$/streamer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -240,6 +110,7 @@
       <workItem from="1557343931943" duration="29000" />
       <workItem from="1561437354488" duration="2131000" />
       <workItem from="1561439696339" duration="5000" />
+      <workItem from="1568092114607" duration="352000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -398,36 +269,19 @@
     <option name="localTasksCounter" value="23" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100148000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947257" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" order="11" visible="true" weight="0.32969433" />
-      <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some cleanuo" />
@@ -437,59 +291,5 @@
     <MESSAGE value="Alive debugging" />
     <MESSAGE value="Disable visual logging by constant" />
     <option name="LAST_COMMIT_MESSAGE" value="Disable visual logging by constant" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/views/index.pug" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/views/layout.pug" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/package.json" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/stylesheets/style.css" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/bin/www" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/javascripts/magapp.js" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/index.html" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/public/placeholder.txt" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/app.js" />
-    <entry file="file://$PROJECT_DIR$/MAGPortalServer/routes/streams.js" />
-    <entry file="file://$PROJECT_DIR$/embed/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/embed/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/embed/magapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
