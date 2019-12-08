@@ -238,20 +238,20 @@ function runPlayer(url) {
         RestartStream();
     };
 
-    // player.onDualMono = function () //event6
-    // {
-    //     LogMessage("Player onDualMono");
-    // };
+    player.onDualMono = function () //event6
+    {
+        LogMessage("Player onDualMono");
+    };
 
-    // player.onTracksUpdate = function () //event9
-    // {
-    //     LogMessage("Player onTracksUpdate")();
-    // };
-    //
-    // player.onRTPBreak = function () //event129
-    // {
-    //     LogMessage("Player onRTPBreak");
-    // };
+    player.onTracksUpdate = function () //event9
+    {
+        LogMessage("Player onTracksUpdate");
+    };
+
+    player.onRTPBreak = function () //event129
+    {
+        LogMessage("Player onRTPBreak");
+    };
 
 
     setFullScreen();
@@ -465,7 +465,7 @@ function newStreamUrlHandler(response) {
         return;
     }
 
-    LogMessage("Server Response "+lastStreamsAsString);
+    LogMessage("Server Response "+response);
 
     if  (lastStreamsAsString === response) return;
 
