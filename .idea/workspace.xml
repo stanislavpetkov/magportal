@@ -4,9 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="More info for restarting">
+    <list default="true" id="fe0302ed-755e-43e2-874c-87fd44ee6264" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/embed/magapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/embed/magapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/embed/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/embed/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +109,7 @@
       <workItem from="1561437354488" duration="2131000" />
       <workItem from="1561439696339" duration="5000" />
       <workItem from="1568092114607" duration="1008000" />
-      <workItem from="1575790547174" duration="2087000" />
+      <workItem from="1575790547174" duration="2478000" />
     </task>
     <task id="LOCAL-00001" summary="some cleanuo">
       <created>1543748763872</created>
@@ -287,7 +286,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575791613408</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="More info for restarting">
+      <created>1575792638979</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1575792638979</updated>
+    </task>
+    <task id="LOCAL-00027" summary="More info for restarting">
+      <created>1575792646352</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1575792646352</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,13 +331,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="More info for restarting" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="773" y="145" width="841" height="818" key="CommitChangelistDialog2" timestamp="1575792638870">
+    <state x="773" y="145" width="841" height="818" key="CommitChangelistDialog2" timestamp="1575792646262">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="773" y="145" width="841" height="818" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1575792638870" />
-    <state x="794" y="287" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1575791615666">
+    <state x="773" y="145" width="841" height="818" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1575792646262" />
+    <state x="794" y="287" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1575792648556">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="794" y="287" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1575791615666" />
+    <state x="794" y="287" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1575792648556" />
   </component>
 </project>
