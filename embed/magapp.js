@@ -10,7 +10,7 @@ var playerNo = 0; //it is in fact constant
 
 var stb = null;
 var stbDisplay = null;
-var lastStreamsAsString = null;
+var lastStreamsAsString = "_NOT_INITI_";
 var deviceInfo = null;
 var intervalObject = null;
 var playerPosition = -1.0;
@@ -58,13 +58,17 @@ function clearlog() {
 }
 
 function RestartStream() {
-    LogMessage("Stream Restart");
+
+    LogMessage("Stream To be restarted");
     clearInterval(playerAliveInterval );
     clearTimeout(intervalObject);
     clearInterval(playerWaitingForStartTimeOut);
-    lastStreamsAsString = null;
+    lastStreamsAsString = "_NOT_INITI_";
+    LogMessage("Stream To be restarted. before loop false");
     getPlayer().loop = false;
+    LogMessage("Stream To be restarted. before stop");
     getPlayer().stop();
+    LogMessage("Stream To be restarted. before http request");
     GetRequest(backendUrl+"/streams?device=" + btoa(JSON.stringify(deviceInfo)), "GET", newStreamUrlHandler);
 }
 
@@ -167,6 +171,7 @@ function runPlayer(url) {
     player.volume = 100;
     var output = stbAudioManager.list[0];
     output.add(player);
+
 
 
     player.onPlayEnd = function () //event1
@@ -447,12 +452,28 @@ function onPortalEvent(txt) {
 
 function newStreamUrlHandler(response) {
 
-    if (lastStreamsAsString === response) return;
+    if (response == null) {
+        LogMessage("Server Response Is Null");
+        return;
+    }
+    if (response === 'undefined') {
+        LogMessage("Server Response Is undefined");
+        return;
+    }
+    if (response.length === 0)
+    {
+        LogMessage("Server Response Is empty string");
+        return;
+    }
+
+    LogMessage("Server Response "+lastStreamsAsString);
+
+    if  (lastStreamsAsString === response) return;
+
     try {
         var js = JSON.parse(response);
 
         try {
-
             runPlayer(js.url);
         }
         catch (e) {
