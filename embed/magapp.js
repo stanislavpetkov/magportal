@@ -209,11 +209,8 @@ function runPlayer(url) {
                 return;
             }
         }
-        else {
+
             LogMessage("Audio is selected. PID "+player.audioPID.toString());
-        }
-
-
     };
 
     player.onContentInfo = function () //event7
@@ -259,8 +256,8 @@ function runPlayer(url) {
 
     setFullScreen();
     player.play({
-        uri: url,
-        solution: 'auto'
+        solution:"ffrt2",
+        uri: url
     });
     player.aspectConversion = aspectConversion;
     player.videoWindowMode = 1; //always have video window
@@ -269,6 +266,8 @@ function runPlayer(url) {
     playerWaitingForStartTimeOut = setTimeout(function ()
     {
         LogMessage("Player Didn't Start For allowed time");
+        //// reboot device
+        // gSTB.ExecAction('reboot');
         RestartStream();
     }, 12000);
 }

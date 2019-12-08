@@ -13,42 +13,7 @@
 
         var doVisualLog=false;
         function LogMessageInt(message) {
-            var now = new Date().toUTCString();
-
-            var logM = now + "  ::  " + message;
-            console.log(logM);
-
-
-            var myLog = gSTB.LoadUserData("mylog.log");
-            myLog += logM+"\n";
-            gSTB.SaveUserData("mylog.log", myLog);          
-
-            if (doVisualLog)
-            {
-                var logging = document.getElementById("logging");
-                if ((typeof logging === 'undefined') || logging === null) {
-                    //document.body.innerHTML += now + "\t" + message + "\n";
-                    return;
-                }
-
-                var allText = logging.innerHTML + logM + "<br>";
-
-                var splited = allText.split("<br>");
-
-                while (splited.length > 26) {
-                    splited.shift();
-                }
-                allText = "";
-                splited.forEach(
-                    function (elm) {
-                        if (elm !== "") {
-                            allText += elm + "<br>";
-                        }
-                    }
-                );
-
-                logging.innerHTML = allText;
-            }
+            gSTB.Debug(message);
         }
 
 
